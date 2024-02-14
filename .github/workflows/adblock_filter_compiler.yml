@@ -19,16 +19,16 @@ jobs:
         python-version: 3.x
 
     - name: Install dependencies
-      run: pip install -r adblock-filter-compiler/requirements.txt
+      run: pip install -r requirements.txt
 
     - name: Run filter generator script
-      run: python adblock-filter-compiler/adblock_filter_compiler.py
+      run: python adblock_filter_compiler.py
 
     - name: Commit and push updated filter list
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add adblock-filter-compiler/blocklist.txt
+        git add blocklist.txt
         git commit -m "Update filter list" || echo "No changes to commit"
         git push
     
