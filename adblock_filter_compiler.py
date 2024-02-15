@@ -50,7 +50,6 @@ def generate_combined_filter(filter_content: List[str]) -> Tuple[str, int, int, 
     base_domain_set = set()
     duplicates_removed = 0
     redundant_rules_removed = 0
-    allowed_domains = 0
 
     for content in filter_content:
         adblock_rules = parse_filter_content(content)
@@ -65,12 +64,10 @@ def generate_combined_filter(filter_content: List[str]) -> Tuple[str, int, int, 
                     duplicates_removed += 1
                 else:
                     redundant_rules_removed += 1
-                if rule in adblock_rules:
-                    allowed_domains += 1
 
     sorted_rules = sorted(adblock_rules_set)
-    header = generate_filter_header(len(sorted_rules), duplicates_removed, redundant_rules_removed, allowed_domains)
-    return '\n'.join([header, '', *sorted_rules]), duplicates_removed, redundant_rules_removed, allowed_domains
+    header = generate_filter_header(len(sorted_rules), duplicates_removed, redundant_rules_removed)
+    return '\n'.join([header, '', *sorted_rules]), duplicates_removed, redundant_rules_removed
 
 
 def generate_filter_header(domain_count: int, duplicates_removed: int, redundant_rules_removed: int, allowed_domains: int) -> str:
@@ -83,7 +80,6 @@ def generate_filter_header(domain_count: int, duplicates_removed: int, redundant
 # Domain Count: {domain_count}
 # Duplicates Removed: {duplicates_removed}
 # Domains Compressed: {redundant_rules_removed}
-# Allowed Domain: {allowed_domains}
 #=================================================================="""
 
 
@@ -111,7 +107,6 @@ def generate_blocklist():
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware",
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Scam",
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking",
-        "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
         "https://raw.githubusercontent.com/AdroitAdorKhan/antipopads-re/master/formats/domains.txt",
