@@ -111,7 +111,6 @@ def generate_blocklist():
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware",
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Scam",
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking",
-        "https://raw.githubusercontent.com/mitchellkrogza/Ultimate.Hosts.Blacklist/master/domains/domains2.list",
         "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
