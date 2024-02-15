@@ -70,7 +70,7 @@ def generate_combined_filter(filter_content: List[str]) -> Tuple[str, int, int, 
     return '\n'.join([header, '', *sorted_rules]), duplicates_removed, redundant_rules_removed
 
 
-def generate_filter_header(domain_count: int, duplicates_removed: int, redundant_rules_removed: int, allowed_domains: int) -> str:
+def generate_filter_header(domain_count: int, duplicates_removed: int, redundant_rules_removed: int) -> str:
     """Generates header with specific domain count, removed duplicates, and compressed domains information."""
     date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')  # Includes date, time, and timezone
     return f"""# Title: sagittaurius's Blocklist
