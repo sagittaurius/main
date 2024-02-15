@@ -118,7 +118,7 @@ def generate_blocklist():
     allowlist_domains = requests.get(allowlist_urls[0]).text.split('\n')
 
     filtered_content = process_filter_content(filter_content, allowlist_domains)
-    filtered_content, _, _, _ = generate_combined_filter(filtered_content)
+    filtered_content, _, _, = generate_combined_filter(filtered_content)
 
     # Write the filter content to a file
     with open('blocklist.txt', 'w') as f:
