@@ -43,4 +43,4 @@ def write_to_file(parsed_list: set, filename: str) -> None:
 if __name__ == "__main__":
     url_list = ['https://raw.githubusercontent.com/sagittaurius/main/main/whitelist']
     parsed_list = generate_parsed(url_list)
-    write_to_file(parsed_list, 'adblock_allowed.txt')
+    write_to_file(parsed_list, 'allow_list.txt')
