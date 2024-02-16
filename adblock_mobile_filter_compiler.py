@@ -95,8 +95,7 @@ def generate_blocklist():
         "https://hostfiles.frogeye.fr/firstparty-only-trackers.txt",
         "https://raw.githubusercontent.com/sjhgvr/oisd/main/domainswild2_big.txt",
         "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt",
-        "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware",
-        "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/cpbl-ctld.txt"
+        "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware"
     ]
     allowlist_urls = ["https://raw.githubusercontent.com/sagittaurius/main/main/whitelist"]
 
