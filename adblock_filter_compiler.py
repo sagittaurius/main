@@ -28,12 +28,13 @@ def parse_filter_content(content: str) -> Set[str]:
     for line in content.split('\n'):
         line = line.strip()
 
-        # Ignore comments and empty lines
+        # Ignore comments ,empty lines and ||www.
         if not line or line[0] in ('#', '!'):
+             if line.startswith('||www.'):
             continue
 
         # Check if line follows AdBlock syntax, else create new rule
-        if line.startswith('||') and line.endswith('^'):
+        if line.startswith('||') and line.endswith('^'):      
             adblock_rules.add(line)
         else:
             parts = line.split()
