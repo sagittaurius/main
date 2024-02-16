@@ -32,6 +32,10 @@ def parse_filter_content(content: str) -> Set[str]:
         if not line or line[0] in ('#', '!'):
             continue
 
+        # Ignore lines starting with '||www.'
+        if line.startswith('||www.'):
+            continue
+
         # Check if line follows AdBlock syntax, else create new rule
         if line.startswith('||') and line.endswith('^'):
             adblock_rules.add(line)
@@ -42,6 +46,7 @@ def parse_filter_content(content: str) -> Set[str]:
                 adblock_rules.add(f'||{domain}^')
 
     return adblock_rules
+
 
 
 def generate_combined_filter(filter_content: List[str]) -> Tuple[str, int, int, int]:
