@@ -7,24 +7,35 @@ def is_valid_domain_name(domain: str) -> bool:
     )
     return bool(domain_regex.match(domain))
 
-def generate():
+def parse_filter_content(content: str) -> set:
+    parsed_list = set()
+    for line in content.split('\n'):
+        line = line.strip()
+
+        if line.startswith('||') and line.endswith('^'):
+            parsed_list.add(line)
+        else:
+            parts = line.split()
+            domain = parts[-1]
+            if is_valid_domain_name(domain):
+                parsed_list.add(f'||{domain}^')
+
+    return parsed_list
+
+def generate_parsed(url_list: list) -> set:
+    parsed_list = set()
+    for url in url_list:
+        content = requests.get(url).text
+        parsed_list.update(parse_filter_content(content))
+
+    return parsed_list
+
+def write_to_file(parsed_list: set, filename: str) -> None:
+    with open(filename, 'w') as f:
+        for item in parsed_list:
+            f.write(item + '\n')
+
+if __name__ == "__main__":
     url_list = ['https://raw.githubusercontent.com/sagittaurius/main/main/whitelist']
-    parsed_list = [requests.get(url).text for url in url_list]
-
-    def parse_filter_content(content):
-        parsed_list = set()
-        for line in content.split('\n'):
-            line = line.strip()
-
-            if line.startswith('||') and line.endswith('^'):
-                parsed_list.add(line)
-            else:
-                parts = line.split()
-                domain = parts[-1]
-                if is_valid_domain_name(domain):
-                    parsed_list.add(f'||{domain}^')
-
-        return parsed_list
-
-    with open('adblock_allowed.txt', 'w') as f:
-        f.write(parsed_list)
+    parsed_list = generate_parsed(url_list)
+    write_to_file(parsed_list, 'allow_list.txt')
