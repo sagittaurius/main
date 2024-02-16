@@ -92,7 +92,6 @@ def process_filter_content(filter_content: List[str], allowlist_domains: List[st
 def generate_blocklist():
     """Main function to fetch blocklists and generate a combined filter."""
     blocklist_urls = [
-        "https://v.firebog.net/hosts/Prigent-Crypto.txt",
         "https://v.firebog.net/hosts/Prigent-Malware.txt",
         "https://hostfiles.frogeye.fr/firstparty-only-trackers.txt",
         "https://hblock.molinero.dev/hosts_adblock.txt",
@@ -110,7 +109,7 @@ def generate_blocklist():
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
         "https://raw.githubusercontent.com/AdroitAdorKhan/antipopads-re/master/formats/domains.txt",
-        "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/cpbl-ctld.txt"
+        "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/cpbl-abp-list.txt"
     ]
     allowlist_urls = ["https://raw.githubusercontent.com/sagittaurius/main/main/whitelist"]
 
