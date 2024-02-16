@@ -9,24 +9,29 @@ def is_valid_domain_name(domain: str) -> bool:
 
 def parse_filter_content(content: str) -> set:
     parsed_list = set()
-    for line in content.split('\n'):
+    lines = content.split('\n')
+    for line in lines:
         line = line.strip()
 
         if line.startswith('||') and line.endswith('^'):
             parsed_list.add(line)
         else:
             parts = line.split()
-            domain = parts[-1]
-            if is_valid_domain_name(domain):
-                parsed_list.add(f'||{domain}^')
+            if parts:
+                domain = parts[-1]
+                if is_valid_domain_name(domain):
+                    parsed_list.add(f'||{domain}^')
 
     return parsed_list
+
 
 def generate_parsed(url_list: list) -> set:
     parsed_list = set()
     for url in url_list:
-        content = requests.get(url).text
-        parsed_list.update(parse_filter_content(content))
+        response = requests.get(url)
+        if response.status_code == 200:
+            content = response.text
+            parsed_list.update(parse_filter_content(content))
 
     return parsed_list
 
@@ -38,4 +43,4 @@ def write_to_file(parsed_list: set, filename: str) -> None:
 if __name__ == "__main__":
     url_list = ['https://raw.githubusercontent.com/sagittaurius/main/main/whitelist']
     parsed_list = generate_parsed(url_list)
-    write_to_file(parsed_list, 'allow_list.txt')
+    write_to_file(parsed_list, 'adblock_allowed.txt')
