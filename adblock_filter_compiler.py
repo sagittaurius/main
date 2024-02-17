@@ -116,7 +116,7 @@ def generate_blocklist():
         "https://raw.githubusercontent.com/AdroitAdorKhan/antipopads-re/master/formats/domains.txt",
         "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/cpbl-abp-list.txt"
     ]
-    allowlist_urls = ["https://raw.githubusercontent.com/sagittaurius/main/main/allow_list.txt"]
+    allowlist_urls = ["https://raw.githubusercontent.com/sagittaurius/main/main/whitelist"]
 
     filter_content = [requests.get(url).text for url in blocklist_urls]
     allowlist_domains = requests.get(allowlist_urls[0]).text.split('\n')
