@@ -101,6 +101,11 @@ def generate_blocklist():
         "https://hostfiles.frogeye.fr/firstparty-only-trackers.txt",
         "https://hblock.molinero.dev/hosts_adblock.txt",
         "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.hosts",
+        "https://blocklistproject.github.io/Lists/alt-version/ads-nl.txt",
+        "https://blocklistproject.github.io/Lists/alt-version/ransomware-nl.txt",
+        "https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt",
+        "https://blocklistproject.github.io/Lists/alt-version/phishing-nl.txt",
+        "https://blocklistproject.github.io/Lists/alt-version/malware-nl.txt",
         "https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt",
         "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt",
         "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt",
@@ -114,7 +119,6 @@ def generate_blocklist():
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
         "https://raw.githubusercontent.com/AdroitAdorKhan/antipopads-re/master/formats/domains.txt",
-        "https://github.com/fabriziosalmi/blacklists/releases/download/latest/blacklist.txt",
         "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/cpbl-abp-list.txt"
     ]
     allowlist_urls = ["https://raw.githubusercontent.com/sagittaurius/main/main/whitelist"]
