@@ -97,10 +97,7 @@ def process_filter_content(filter_content: List[str], allowlist_domains: List[st
 def generate_blocklist():
     """Main function to fetch blocklists and generate a combined filter."""
     blocklist_urls = [
-        "https://v.firebog.net/hosts/Prigent-Malware.txt",
         "https://hostfiles.frogeye.fr/firstparty-only-trackers.txt",
-        "https://hblock.molinero.dev/hosts_adblock.txt",
-        "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.hosts",
         "https://blocklistproject.github.io/Lists/alt-version/ransomware-nl.txt",
         "https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt",
         "https://blocklistproject.github.io/Lists/alt-version/phishing-nl.txt",
