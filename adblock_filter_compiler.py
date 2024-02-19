@@ -23,11 +23,18 @@ def filter_content_by_allowlist_domains(filter_content: List[str], allowlist_dom
 
 def parse_filter_content(content: str) -> Set[str]:
     """Parses a filter content into AdBlock rules."""
-    return {
-        line
-        for line in content.split('\n')
-        if line.strip() and line[0] not in ('#', '!') and not line.startswith('||www.')
-    }
+    adblock_rules = set()
+    for line in content.split('\n'):
+        if line.strip() and line[0] not in ('#', '!') and not line.startswith('||www.'):
+            # Check if line follows AdBlock syntax, else create new rule
+            if line.startswith('||') and line.endswith('^'):
+                adblock_rules.add(line)
+            else:
+                parts = line.split()
+                domain = parts[-1]
+                if is_valid_domain_name(domain):
+                    adblock_rules.add(f'||{domain}^')
+    return adblock_rules
 
 
 def generate_combined_filter_content(filter_content: List[str]) -> Tuple[str, int, int, int]:
@@ -73,6 +80,14 @@ def process_filter_content_with_allowlist_domains(filter_content: List[str], all
     """Processes the allowed domains before filtering the content."""
     filtered_content = filter_content_by_allowlist_domains(filter_content, set(allowlist_domains))
     return filtered_content
+
+
+def extract_subdomain_with_base_domain(domain: str) -> Tuple[str, str]:
+    """Extracts the subdomain and base domain from a given domain."""
+    parts = domain.split('.')
+    subdomain = '.'.join(parts[:-2])
+    base_domain = '.'.join(parts[-2:])
+    return subdomain, base_domain
 
 
 def generate_combined_filter_file():
