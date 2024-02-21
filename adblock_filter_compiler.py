@@ -50,7 +50,7 @@ def generate_combined_filter_content(filter_content: List[str]) -> Tuple[str, in
         for rule in adblock_rules:
             domain = rule[2:-1]  # Remove '||' and '^'
             base_domain = '.'.join(domain.split('.')[-2:])  # Get the base domain (last three parts)
-            subdomain = '.'.join(domain.split('.')[:-3])
+            subdomain = '.'.join(domain.split('.')[:-2])
             if rule not in adblock_rules_set and base_domain not in base_domain_set:
                 adblock_rules_set.add(rule)
                 base_domain_set.add(base_domain)
