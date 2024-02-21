@@ -99,7 +99,7 @@ def generate_combined_filter_file():
         "https://blocklistproject.github.io/Lists/alt-version/phishing-nl.txt",
         "https://blocklistproject.github.io/Lists/alt-version/malware-nl.txt",
         "https://raw.githubusercontent.com/neodevpro/neodevhost/master/adblocker",
-        "https://raw.githubusercontent.com/sjhgvr/oisd/main/domainswild2_big.txt",
+        "https://raw.githubusercontent.com/sjhgvr/oisd/main/abp_big.txt",
         "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt",
         "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt",
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware",
