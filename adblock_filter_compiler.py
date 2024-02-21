@@ -41,6 +41,7 @@ def generate_combined_filter_content(filter_content: List[str]) -> Tuple[str, in
     """Generates combined filter content by eliminating duplicates and redundant rules."""
     adblock_rules_set = set()
     base_domain_set = set()
+    subdomain_set = set()
     duplicates_removed = 0
     redundant_rules_removed = 0
 
@@ -49,9 +50,11 @@ def generate_combined_filter_content(filter_content: List[str]) -> Tuple[str, in
         for rule in adblock_rules:
             domain = rule[2:-1]  # Remove '||' and '^'
             base_domain = '.'.join(domain.split('.')[-2:])  # Get the base domain (last three parts)
+            subdomain = '.'.join(domain.split('.')[:-3])
             if rule not in adblock_rules_set and base_domain not in base_domain_set:
                 adblock_rules_set.add(rule)
                 base_domain_set.add(base_domain)
+                subdomain_set.add(subdomain)
             else:
                 if rule in adblock_rules_set:
                     duplicates_removed += 1
@@ -80,14 +83,6 @@ def process_filter_content_with_allowlist_domains(filter_content: List[str], all
     """Processes the allowed domains before filtering the content."""
     filtered_content = filter_content_by_allowlist_domains(filter_content, set(allowlist_domains))
     return filtered_content
-
-
-def extract_subdomain_with_base_domain(domain: str) -> Tuple[str, str]:
-    """Extracts the subdomain and base domain from a given domain."""
-    parts = domain.split('.')
-    subdomain = '.'.join(parts[:-2])
-    base_domain = '.'.join(parts[-2:])
-    return subdomain, base_domain
 
 
 def generate_combined_filter_file():
