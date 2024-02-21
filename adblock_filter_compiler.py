@@ -107,12 +107,3 @@ def generate_combined_filter_file():
 
 if __name__ == "__main__":
     generate_combined_filter_file()
-
- """       "https://blocklistproject.github.io/Lists/alt-version/ransomware-nl.txt",
-        "https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt",
-        "https://blocklistproject.github.io/Lists/alt-version/phishing-nl.txt",
-        "https://blocklistproject.github.io/Lists/alt-version/malware-nl.txt", 
-"https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware",
-        "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking",
-        "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
-        "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe","""
