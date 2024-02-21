@@ -81,15 +81,6 @@ def process_filter_content_with_allowlist_domains(filter_content: List[str], all
     filtered_content = filter_content_by_allowlist_domains(filter_content, set(allowlist_domains))
     return filtered_content
 
-
-def extract_subdomain_with_base_domain(domain: str) -> Tuple[str, str]:
-    """Extracts the subdomain and base domain from a given domain."""
-    parts = domain.split('.')
-    subdomain = '.'.join(parts[:-2])
-    base_domain = '.'.join(parts[-2:])
-    return subdomain, base_domain
-
-
 def generate_combined_filter_file():
     """Main function to fetch blocklists and generate a combined filter."""
     blocklist_urls = [
