@@ -111,6 +111,7 @@ def generate_combined_filter_file():
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
         "https://raw.githubusercontent.com/AdroitAdorKhan/antipopads-re/master/formats/domains.txt",
+        "https://nocdn.nrd-list.com/1/nrd-list-32-days.txt",
         "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/cpbl-abp-list.txt"
     ]
     allowlist_urls = ["https://raw.githubusercontent.com/sagittaurius/main/main/whitelist"]
