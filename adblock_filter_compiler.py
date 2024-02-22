@@ -30,8 +30,8 @@ def parse_filter_content(content: str) -> Set[str]:
             if line.startswith('||') and line.endswith('^'):
                 adblock_rules.add(line)
             else:
-                parts = line.split()
-                domain = parts[-1]
+                parts = line.split('.')
+                domain = parts[-2]
                 if is_valid_domain_name(domain):
                     adblock_rules.add(f'||{domain}^')
     return adblock_rules
