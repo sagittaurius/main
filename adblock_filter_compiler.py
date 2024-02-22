@@ -48,7 +48,7 @@ def generate_combined_filter_content(filter_content: List[str]) -> Tuple[str, in
         adblock_rules = parse_filter_content(content)
         for rule in adblock_rules:
             domain = rule[2:-1]  # Remove '||' and '^'
-            base_domain = '.'.join(domain.split('.')[-3:])  # Get the base domain (last three parts)
+            base_domain = '.'.join(domain.split('.')[-2:])  # Get the base domain (last three parts)
             if rule not in adblock_rules_set and base_domain not in base_domain_set:
                 adblock_rules_set.add(rule)
                 base_domain_set.add(base_domain)
@@ -85,13 +85,11 @@ def process_filter_content_with_allowlist_domains(filter_content: List[str], all
 def generate_combined_filter_file():
     """Main function to fetch blocklists and generate a combined filter."""
     blocklist_urls = [
-        "https://hostfiles.frogeye.fr/firstparty-only-trackers.txt",
         "https://blocklistproject.github.io/Lists/alt-version/ransomware-nl.txt",
         "https://blocklistproject.github.io/Lists/alt-version/abuse-nl.txt",
         "https://blocklistproject.github.io/Lists/alt-version/phishing-nl.txt",
         "https://blocklistproject.github.io/Lists/alt-version/malware-nl.txt", 
         "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Malware",
-        "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
         "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
         "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt"
