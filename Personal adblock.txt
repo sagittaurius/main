@@ -1,0 +1,8 @@
+! Title: Personal adblock
+! Version: 01March2024
+! Description:  
+
+!#include https://filters.adtidy.org/extension/ublock/filters/14_optimized.txt
+!#include https://filters.adtidy.org/extension/ublock/filters/2_optimized.txt
+!#include https://gitlab.com/DandelionSprout/adfilt/-/raw/master/LegitimateURLShortener.txt
+!#include https://filters.adtidy.org/extension/ublock/filters/122_optimized.txt
