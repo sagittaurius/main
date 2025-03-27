@@ -43,9 +43,9 @@ def write_to_file(parsed_list: set, filename: str) -> None:
 if __name__ == "__main__":
     url_list = [
             'https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/windows.txt',
-
+'https://raw.githubusercontent.com/zoonderkins/blahdns/refs/heads/master/hosts/whitelist.txt',
 'https://raw.githubusercontent.com/ookangzheng/blahdns/master/hosts/whitelist.txt',
-
+'https://raw.githubusercontent.com/celenityy/BadBlock/pages/abp/whitelist.txt',
 'https://raw.githubusercontent.com/im-sm/Pi-hole-Torrent-Blocklist/main/all-torrent-trackres.txt',
 
 'https://raw.githubusercontent.com/AdguardTeam/HttpsExclusions/master/exclusions/issues.txt',
